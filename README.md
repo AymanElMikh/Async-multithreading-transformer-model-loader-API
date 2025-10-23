@@ -1,6 +1,3 @@
-The original request was for a Flask-based framework, but the provided content is a comprehensive **FastAPI** structure, which is significantly better suited for asynchronous, high-concurrency workloads. I will format the provided content into a professional and complete `README.md` file, correcting the mention of Flask to **FastAPI** to match the given features and architecture.
-
------
 
 # 🚀 Async Transformer Framework
 
