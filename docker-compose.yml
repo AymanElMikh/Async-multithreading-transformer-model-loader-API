@@ -1,0 +1,34 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+  transformer-api:
+    build: .
+    container_name: transformer_framework
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount your models directory
+      - ./models:/app/models:ro
+      # Optional: Mount config
+      - ./config.yaml:/app/config.yaml:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 8G
+        reservations:
+          # Uncomment if using GPU
+          # devices:
+          #   - driver: nvidia
+          #     count: 1
+          #     capabilities: [gpu]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

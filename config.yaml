@@ -1,0 +1,34 @@
+# config.yaml - Configuration for the framework
+
+server:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 1  # Use 1 worker to share GPU memory across requests
+
+inference:
+  batch_size: 8  # Maximum batch size
+  wait_time: 0.1  # Seconds to wait before processing batch
+  cache_ttl: 3600  # Cache time-to-live in seconds
+
+models:
+  # Pre-load these models on startup
+  - model_id: "sentiment"
+    model_path: "./models/sentiment_model"
+    task_type: "text-classification"
+    device: "auto"
+  
+  - model_id: "ner"
+    model_path: "./models/ner_model"
+    task_type: "token-classification"
+    device: "auto"
+  
+  - model_id: "summarizer"
+    model_path: "./models/summarization_model"
+    task_type: "summarization"
+    device: "auto"
+
+# Resource limits
+resources:
+  max_models: 5  # Maximum number of models to keep loaded
+  memory_threshold_mb: 8000  # Unload models if memory exceeds this
+  auto_unload_after_minutes: 60  # Unload unused models after this time

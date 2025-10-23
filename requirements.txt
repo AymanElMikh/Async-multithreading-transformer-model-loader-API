@@ -1,0 +1,31 @@
+# Core Framework Dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+
+# Transformer Libraries
+transformers==4.35.0
+torch==2.2.0
+tokenizers==0.15.0
+
+# Optional: For specific model types
+sentencepiece==0.1.99  # For some tokenizers
+accelerate==0.24.0     # For device optimization
+
+# Utilities
+python-multipart==0.0.6
+aiofiles==23.2.1
+psutil==5.9.6
+
+# Optional: For configuration management
+pyyaml==6.0.1
+python-dotenv==1.0.0
+
+# Optional: For Redis caching (if you want distributed cache)
+# redis==5.0.1
+# aioredis==2.0.1
+
+# Development Dependencies (optional)
+pytest==7.4.3
+pytest-asyncio==0.21.1
+httpx==0.25.1  # For testing async endpoints
